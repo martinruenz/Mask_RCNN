@@ -7,6 +7,13 @@ Licensed under the MIT License (see LICENSE for details)
 Written by Waleed Abdulla
 """
 
+import tensorflow as tf
+config = tf.ConfigProto()
+config.gpu_options.allow_growth = True
+session = tf.Session(config=config)
+from keras.backend.tensorflow_backend import set_session
+set_session(session)
+
 import os
 import sys
 import glob
@@ -20,7 +27,6 @@ import logging
 from collections import OrderedDict
 import numpy as np
 import scipy.misc
-import tensorflow as tf
 import keras
 import keras.backend as K
 import keras.layers as KL
